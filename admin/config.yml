@@ -1,0 +1,43 @@
+backend:
+  name: github
+  repo: trauermosaik/website
+  branch: main
+  base_url: https://trauermosaik-auth.verein.workers.dev
+  auth_endpoint: /auth
+
+media_folder: "assets/images/uploads" # Wo Mitglieder Bilder hochladen
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Statische Seiten"
+    files:
+      - file: "content/index.md"
+        label: "Startseite"
+        name: "index"
+        fields:
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+          - { label: "Hauptinhalt", name: "body", widget: "markdown" }
+          
+      - file: "content/mitglied-werden.md"
+        label: "Mitgliedsantrag"
+        name: "mitglied_werden"
+        fields:
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+          - { label: "Einleitungstext", name: "body", widget: "markdown" }
+          - { label: "Tally Formular ID", name: "tally_id", widget: "string", hint: "Die ID aus Ihrem Tally.so Einbettungscode" }
+
+  - name: "news"
+    label: "Neuigkeiten / Blog"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime" }
+      - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+      - { label: "Beitragstext", name: "body", widget: "markdown" }

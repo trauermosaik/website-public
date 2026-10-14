@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Trauermosaik e.V. – Admin-Bereich</title>
+  </head>
+  <body>
+    <script>
+      const origAdd = window.addEventListener;
+      window.addEventListener = function(type, listener, options) {
+        if (type === 'message') {
+          console.log('[INTERCEPT] message listener registered');
+          const wrapped = function(event) {
+            console.log('[INTERCEPT] listener received:', {
+              origin: event.origin,
+              data: event.data
+            });
+            try {
+              listener.call(this, event);
+              console.log('[INTERCEPT] listener completed without error');
+            } catch (e) {
+              console.error('[INTERCEPT] listener threw:', e);
+            }
+          };
+          return origAdd.call(this, type, wrapped, options);
+        }
+        return origAdd.call(this, type, listener, options);
+      };
+    </script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" defer></script>
+  </body>
+</html>
