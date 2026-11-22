@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trauerpizza, Trauerspaziergang &amp; mehr – Formate von Trauermosaik | Trauermosaik</title>
+  <meta name="description" content="Niedrigschwellige Begegnungsformate, Trauergruppen und Bildungsangebote von Trauermosaik. Offen für alle, auch ohne Mitgliedschaft.">
+  <link rel="icon" href="/assets/images/favicon-16.png" sizes="16x16">
+  <link rel="icon" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/images/favicon-48.png" sizes="48x48">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="ton-trauernde">
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img src="/assets/images/logo.png" alt="Trauermosaik e. V. – Startseite">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptnav">Menü</button>
+
+      
+
+      <nav id="hauptnav" class="site-nav" aria-label="Hauptnavigation">
+        
+          <a class="nav-allgemein" href="/">Start</a>
+        
+          <a class="nav-trauernde" href="/formate/" aria-current="page">Formate</a>
+        
+          <a class="nav-gesellschaft" href="/projekte/">Projekte</a>
+        
+          <a class="nav-unterstuetzende" href="/mitglied-werden/">Mitglied werden</a>
+        
+          <a class="nav-allgemein" href="/ueber-uns/">Über uns</a>
+        
+          <a class="nav-allgemein" href="/termine/">Termine</a>
+        
+          <a class="nav-allgemein" href="/neuigkeiten/">Neuigkeiten</a>
+        
+          <a class="nav-allgemein" href="/kontakt/">Kontakt</a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt" class="wrap" tabindex="-1">
+    <article class="page">
+      <header class="page-header">
+        <h1>Formate &amp; Angebote</h1>
+      </header>
+      
+      <p class="lead">Trauer hat viele Gesichter. Deshalb gibt es bei uns verschiedene Wege, einander zu begegnen. Alle Angebote sind offen für alle – eine Mitgliedschaft ist nicht nötig.</p>
+      
+      <h2>Begegnung im Alltag</h2>
+<div class="card-grid">
+<section class="card">
+<h3>Trauerpizza</h3>
+<p>Beisammensein bei einem gemeinsamen Essen. <!-- TODO: Ablauf und Termine ergänzen --></p>
+</section>
+<section class="card">
+<h3>Trauerspaziergang</h3>
+<p>Gemeinsam unterwegs, in Ruhe und im eigenen Tempo. <!-- TODO: Termine ergänzen --></p>
+</section>
+<section class="card">
+<h3>Trauergassi</h3>
+<p>Ein weiteres Begegnungsformat. <!-- TODO: Beschreibung präzisieren --></p>
+</section>
+<section class="card">
+<h3>Trauerpicknick</h3>
+<p>Ein Picknick als offener Treffpunkt. <!-- TODO: Termine ergänzen --></p>
+</section>
+</div>
+<h2>Trauergruppen</h2>
+<p>Wir bieten Trauergruppen an, auch online, sowie themenspezifische Angebote. <!-- TODO: konkrete Themen, Leitung und Anmeldung ergänzen --></p>
+<h2>Aufklärung &amp; Bildung</h2>
+<ul>
+<li>Öffentliche Vorträge und Informationsveranstaltungen zu Trauer und Verlust</li>
+<li>Workshops für Schulen, Unternehmen, soziale Einrichtungen und die breite Öffentlichkeit</li>
+<li>Öffentliche Projekte, die Trauernde und Gesellschaft zusammenbringen, etwa ein Trauer-Begegnungsweg</li>
+<li>Material wie Flyer und Broschüren sowie Aufklärung über digitale Kanäle und Medien</li>
+</ul>
+<h2>Teilnehmen</h2>
+<p>Interesse an einem Format? Schreib uns – wir melden uns mit den aktuellen Terminen.</p>
+<p><a class="button" href="/kontakt/">Kontakt aufnehmen</a></p>
+<!-- TODO: Termine, Anmeldelinks und konkrete Ansprechpersonen ergänzen, sobald sie feststehen. -->
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Trauermosaik · Muggensturm · gemeinnütziger Verein in Gründung</p>
+      <nav aria-label="Rechtliches">
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+        <a href="/kontakt/">Kontakt</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".site-nav");
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        const offen = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!offen));
+        nav.classList.toggle("is-open", !offen);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+@font-face {
+  font-family: "Bitter";
+  src: url("/assets/fonts/Bitter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bitter";
+  src: url("/assets/fonts/Bitter-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bitter";
+  src: url("/assets/fonts/Bitter-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bitter";
+  src: url("/assets/fonts/Bitter-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("/assets/fonts/SourceSans3-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("/assets/fonts/SourceSans3-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* Hausfarben aus dem Styleguide */
+  --beige: #f6eee7;
+  --nachtpetrol: #3b5e6a;
+  --morgengold: #ca9932;
+  --morgengold-ink: #8a6414;
+  --erdrot: #a65e2e;
+  --erdrot-ink: #8a4a20;
+  --hoffnungsgruen: #656f37;
+  --hoffnungsgruen-ink: #4f5729;
+
+  --surface: #fffdfb;
+  --surface-translucent: rgba(255, 253, 251, 0.72);
+  --text: #2f2a27;
+  --muted: #6b625c;
+  --border: #ddd4ce;
+  --radius: 12px;
+  --space: clamp(1rem, 3vw, 2rem);
+  --wrap: 68rem;
+
+  --font-heading: "Bitter", Georgia, serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+
+  /* Default: allgemeine Seiten tragen Nachtpetrol */
+  --akzent: var(--nachtpetrol);
+  --akzent-ink: var(--nachtpetrol);
+  --akzent-soft: var(--nav-soft-allgemein);
+
+  /* Navigation: text uses the ink variants, backgrounds are mixed from the original tones */
+  --nav-allgemein: var(--nachtpetrol);
+  --nav-gesellschaft: var(--morgengold-ink);
+  --nav-trauernde: var(--erdrot-ink);
+  --nav-unterstuetzende: var(--hoffnungsgruen-ink);
+
+  --nav-tint-allgemein: var(--nachtpetrol);
+  --nav-tint-gesellschaft: var(--morgengold);
+  --nav-tint-trauernde: var(--erdrot);
+  --nav-tint-unterstuetzende: var(--hoffnungsgruen);
+
+  --nav-base-allgemein: color-mix(in srgb, var(--nav-tint-allgemein) 16%, white);
+  --nav-base-gesellschaft: color-mix(in srgb, var(--nav-tint-gesellschaft) 16%, white);
+  --nav-base-trauernde: color-mix(in srgb, var(--nav-tint-trauernde) 16%, white);
+  --nav-base-unterstuetzende: color-mix(in srgb, var(--nav-tint-unterstuetzende) 16%, white);
+
+  --nav-soft-allgemein: color-mix(in srgb, var(--nav-tint-allgemein) 28%, white);
+  --nav-soft-gesellschaft: color-mix(in srgb, var(--nav-tint-gesellschaft) 28%, white);
+  --nav-soft-trauernde: color-mix(in srgb, var(--nav-tint-trauernde) 28%, white);
+  --nav-soft-unterstuetzende: color-mix(in srgb, var(--nav-tint-unterstuetzende) 28%, white);
+
+  --nav-current-allgemein: var(--nav-tint-allgemein);
+  --nav-current-gesellschaft: var(--nav-tint-gesellschaft);
+  --nav-current-trauernde: var(--nav-tint-trauernde);
+  --nav-current-unterstuetzende: var(--nav-tint-unterstuetzende);
+
+  --nav-current-text-allgemein: #fff;
+  --nav-current-text-gesellschaft: #fff;
+  --nav-current-text-trauernde: #fff;
+  --nav-current-text-unterstuetzende: #fff;
+
+  --header-border-color: var(--nav-current-allgemein);
+}
+
+/* Farbzuordnung pro Seite. Wird über farbton im Front Matter gesetzt. */
+.ton-gesellschaft {
+  --akzent: var(--morgengold-ink);
+  --akzent-ink: var(--morgengold-ink);
+  --akzent-soft: var(--nav-soft-gesellschaft);
+  --header-border-color: var(--nav-current-gesellschaft);
+}
+.ton-trauernde {
+  --akzent: var(--erdrot-ink);
+  --akzent-ink: var(--erdrot-ink);
+  --akzent-soft: var(--nav-soft-trauernde);
+  --header-border-color: var(--nav-current-trauernde);
+}
+.ton-unterstuetzende {
+  --akzent: var(--hoffnungsgruen-ink);
+  --akzent-ink: var(--hoffnungsgruen-ink);
+  --akzent-soft: var(--nav-soft-unterstuetzende);
+  --header-border-color: var(--nav-current-unterstuetzende);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  background-color: var(--beige);
+  background-image: url("/assets/images/papierstruktur.webp");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+img { max-width: 100%; height: auto; }
+
+a {
+  color: var(--akzent-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+a:hover { color: var(--akzent); }
+
+:focus-visible {
+  outline: 3px solid var(--akzent);
+  outline-offset: 3px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--akzent-ink);
+}
+
+.wrap {
+  width: min(calc(100% - 2 * var(--space)), var(--wrap));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface);
+}
+.skip-link:focus { left: var(--space); top: 0.5rem; }
+
+.site-header {
+  background: rgba(255, 253, 251, 0.94);
+  border-bottom: 4px solid var(--header-border-color);
+}
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  min-height: 4.5rem;
+}
+.brand img {
+  display: block;
+  width: clamp(140px, 26vw, 190px);
+  height: auto;
+  margin-block: 0.9rem;
+}
+
+.nav-toggle {
+  margin-left: auto;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--akzent-ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.site-nav { display: none; width: 100%; }
+.site-nav.is-open { display: block; }
+.site-nav a {
+  display: block;
+  padding: 0.7rem;
+  text-decoration: none;
+  transition: background-color 0.5s ease, color 0.5s ease, margin-top 0.5s ease, padding-bottom 0.5s ease;
+}
+.site-nav a[aria-current="page"] { font-weight: 600; }
+
+.site-nav a.nav-allgemein { color: var(--nav-allgemein); background: var(--nav-base-allgemein); }
+.site-nav a.nav-gesellschaft { color: var(--nav-gesellschaft); background: var(--nav-base-gesellschaft); }
+.site-nav a.nav-trauernde { color: var(--nav-trauernde); background: var(--nav-base-trauernde); }
+.site-nav a.nav-unterstuetzende { color: var(--nav-unterstuetzende); background: var(--nav-base-unterstuetzende); }
+
+.site-nav a.nav-allgemein:hover { background: var(--nav-soft-allgemein); }
+.site-nav a.nav-gesellschaft:hover { background: var(--nav-soft-gesellschaft); }
+.site-nav a.nav-trauernde:hover { background: var(--nav-soft-trauernde); }
+.site-nav a.nav-unterstuetzende:hover { background: var(--nav-soft-unterstuetzende); }
+
+.site-nav a.nav-allgemein[aria-current="page"] { background: var(--nav-current-allgemein); color: var(--nav-current-text-allgemein); }
+.site-nav a.nav-gesellschaft[aria-current="page"] { background: var(--nav-current-gesellschaft); color: var(--nav-current-text-gesellschaft); }
+.site-nav a.nav-trauernde[aria-current="page"] { background: var(--nav-current-trauernde); color: var(--nav-current-text-trauernde); }
+.site-nav a.nav-unterstuetzende[aria-current="page"] { background: var(--nav-current-unterstuetzende); color: var(--nav-current-text-unterstuetzende); }
+
+main {
+  flex: 1 0 auto;
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+main:focus { outline: none; }
+
+.page-header { margin-bottom: 2rem; }
+h1 { margin: 0 0 0.5rem; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; }
+h2 { margin: 2.5rem 0 0.75rem; font-size: 1.5rem; line-height: 1.25; }
+h3 { margin: 0 0 0.4rem; font-size: 1.15rem; }
+p { margin: 0 0 1rem; }
+ul, ol { padding-left: 1.2rem; }
+li { margin-bottom: 0.4rem; }
+
+.lead { color: var(--muted); font-size: 1.15rem; }
+
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  margin: 1.5rem 0;
+}
+.card {
+  padding: 1.25rem;
+  background: var(--surface-translucent);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--akzent);
+  border-radius: var(--radius);
+}
+.card p:last-child { margin-bottom: 0; }
+
+/* Gemeinsame Szene: die drei Steine liegen absolut übereinander und wachsen zu einem Bild zusammen. */
+.mosaik-szene {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  margin: 2rem 0;
+}
+.mosaik-stein {
+  position: absolute;
+  display: block;
+  width: 42%;
+  height: auto;
+  text-decoration: none;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.mosaik-stein img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.stein-1 { top: 2%; left: 0%; }
+.stein-2 { top: 6%; left: 27%; }
+.stein-3 { top: 0%; left: 56%; }
+.mosaik-stein:hover { transform: translateY(-2px); filter: brightness(1.05); }
+
+.stein-label,
+.stein-text {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85), 0 0 12px rgba(0, 0, 0, 0.5);
+}
+.stein-label {
+  bottom: 24%;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.35rem;
+}
+.stein-text { bottom: 6%; font-size: 0.9rem; }
+
+/* Morgengold ist hell: dunkle Schrift für lesbaren Kontrast. */
+.stein-gesellschaft .stein-label,
+.stein-gesellschaft .stein-text {
+  color: #4a3108;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+/* Der Hoffnungsgrün-Stein läuft nach unten spitz zu. */
+.stein-unterstuetzende .stein-label { bottom: 34%; }
+.stein-unterstuetzende .stein-text { bottom: 16%; }
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--akzent);
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover { background: var(--akzent-ink); color: #fff; }
+.button-secondary {
+  background: transparent;
+  border: 1px solid var(--akzent);
+  color: var(--akzent-ink);
+}
+.button-secondary:hover { background: var(--akzent-soft); color: var(--akzent-ink); }
+
+.form {
+  max-width: 38rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--akzent);
+  border-radius: var(--radius);
+}
+.field { margin-bottom: 1rem; }
+.field label { display: block; margin-bottom: 0.3rem; font-weight: 600; }
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+.field textarea { min-height: 8rem; resize: vertical; }
+.form-note { color: var(--muted); font-size: 0.9rem; }
+
+.news-list { display: grid; gap: 1rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.news-item {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--akzent);
+  border-radius: var(--radius);
+}
+.news-item time { display: block; margin-bottom: 0.25rem; color: var(--muted); font-size: 0.9rem; }
+.news-item h2 { margin: 0 0 0.35rem; font-size: 1.25rem; }
+.news-item p:last-child { margin-bottom: 0; }
+
+code {
+  padding: 0.1rem 0.3rem;
+  background: var(--akzent-soft);
+  border-radius: 0.25rem;
+  font-size: 0.95em;
+}
+
+.site-footer {
+  flex-shrink: 0;
+  margin-top: 3rem;
+  padding-block: 2rem;
+  background: rgba(255, 253, 251, 0.94);
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  justify-content: space-between;
+}
+.footer-inner p { margin: 0; }
+.footer-inner nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+@media (min-width: 48rem) {
+  .nav-toggle { display: none; }
+  .site-nav {
+    display: flex;
+    align-self: stretch;
+    align-items: flex-end;
+    width: auto;
+    margin-left: auto;
+    gap: 0.35rem;
+  }
+  .site-nav a {
+    display: flex;
+    align-items: center;
+    margin-top: 0.6rem;
+    padding: 0.5rem 0.75rem 0.15rem;
+    border-radius: 12px 12px 0 0;
+  }
+  .site-nav a:hover,
+  .site-nav a[aria-current="page"] {
+    margin-top: 0;
+    padding-bottom: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .mosaik-stein,
+  .site-nav a { transition: none; }
+}

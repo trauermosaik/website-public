@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neuigkeiten von Trauermosaik | Trauermosaik</title>
+  <meta name="description" content="Aktuelle Meldungen, Termine und Geschichten rund um Trauermosaik.">
+  <link rel="icon" href="/assets/images/favicon-16.png" sizes="16x16">
+  <link rel="icon" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="/assets/images/favicon-48.png" sizes="48x48">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="ton-allgemein">
+  <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img src="/assets/images/logo.png" alt="Trauermosaik e. V. – Startseite">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="hauptnav">Menü</button>
+
+      
+
+      <nav id="hauptnav" class="site-nav" aria-label="Hauptnavigation">
+        
+          <a class="nav-allgemein" href="/">Start</a>
+        
+          <a class="nav-trauernde" href="/formate/">Formate</a>
+        
+          <a class="nav-gesellschaft" href="/projekte/">Projekte</a>
+        
+          <a class="nav-unterstuetzende" href="/mitglied-werden/">Mitglied werden</a>
+        
+          <a class="nav-allgemein" href="/ueber-uns/">Über uns</a>
+        
+          <a class="nav-allgemein" href="/termine/">Termine</a>
+        
+          <a class="nav-allgemein" href="/neuigkeiten/" aria-current="page">Neuigkeiten</a>
+        
+          <a class="nav-allgemein" href="/kontakt/">Kontakt</a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <main id="inhalt" class="wrap" tabindex="-1">
+    <article class="page">
+      <header class="page-header">
+        <h1>Neuigkeiten</h1>
+      </header>
+      
+      <p class="lead">Was uns gerade bewegt: Neuigkeiten aus dem Verein und unseren Formaten.</p>
+      
+      
+  
+  
+  <ul class="news-list">
+    
+    <li class="news-item">
+      <time datetime="2026-11-08">08. November 2026</time>
+      <h2><a href="/news/2026-11-08-wir-sind-in-gruendung/">Wir sind in Gründung</a></h2>
+      <p>Trauermosaik wird gerade gegründet – ein gemeinnütziger Verein, der Trauer sichtbar und teilbar machen möchte.</p>
+    </li>
+    
+  </ul>
+  
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Trauermosaik · Muggensturm · gemeinnütziger Verein in Gründung</p>
+      <nav aria-label="Rechtliches">
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+        <a href="/kontakt/">Kontakt</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".site-nav");
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        const offen = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!offen));
+        nav.classList.toggle("is-open", !offen);
+      });
+    }
+  </script>
+</body>
+</html>

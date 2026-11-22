@@ -1,0 +1,234 @@
+backend:
+  name: github
+  repo: trauermosaik/website
+  branch: main
+  base_url: https://trauermosaik-auth.verein.workers.dev
+  auth_endpoint: /auth
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Statische Seiten"
+    files:
+      - file: "content/index.md"
+        label: "Startseite"
+        name: "index"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "layout.njk" }
+          - label: "Farbton"
+            name: "farbton"
+            widget: "select"
+            default: "allgemein"
+            options:
+              - { label: "Allgemein – Nachtpetrol", value: "allgemein" }
+              - { label: "Gesellschaft – Morgengold", value: "gesellschaft" }
+              - { label: "Trauernde – Erdrot", value: "trauernde" }
+              - { label: "Unterstützende – Hoffnungsgrün", value: "unterstuetzende" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Einleitungstext", name: "lead", widget: "text", required: false }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+          - { label: "Hauptinhalt", name: "body", widget: "markdown" }
+
+      - file: "content/ueber-uns.md"
+        label: "Über uns"
+        name: "ueber_uns"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "layout.njk" }
+          - label: "Farbton"
+            name: "farbton"
+            widget: "select"
+            default: "allgemein"
+            options:
+              - { label: "Allgemein – Nachtpetrol", value: "allgemein" }
+              - { label: "Gesellschaft – Morgengold", value: "gesellschaft" }
+              - { label: "Trauernde – Erdrot", value: "trauernde" }
+              - { label: "Unterstützende – Hoffnungsgrün", value: "unterstuetzende" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Einleitungstext", name: "lead", widget: "text", required: false }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+          - { label: "Hauptinhalt", name: "body", widget: "markdown" }
+
+      - file: "content/formate.md"
+        label: "Formate & Angebote"
+        name: "formate"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "layout.njk" }
+          - label: "Farbton"
+            name: "farbton"
+            widget: "select"
+            default: "trauernde"
+            options:
+              - { label: "Allgemein – Nachtpetrol", value: "allgemein" }
+              - { label: "Gesellschaft – Morgengold", value: "gesellschaft" }
+              - { label: "Trauernde – Erdrot", value: "trauernde" }
+              - { label: "Unterstützende – Hoffnungsgrün", value: "unterstuetzende" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Einleitungstext", name: "lead", widget: "text", required: false }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+          - { label: "Hauptinhalt", name: "body", widget: "markdown" }
+
+      - file: "content/projekte.md"
+        label: "Projekte"
+        name: "projekte"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "layout.njk" }
+          - label: "Farbton"
+            name: "farbton"
+            widget: "select"
+            default: "gesellschaft"
+            options:
+              - { label: "Allgemein – Nachtpetrol", value: "allgemein" }
+              - { label: "Gesellschaft – Morgengold", value: "gesellschaft" }
+              - { label: "Trauernde – Erdrot", value: "trauernde" }
+              - { label: "Unterstützende – Hoffnungsgrün", value: "unterstuetzende" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Einleitungstext", name: "lead", widget: "text", required: false }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+          - { label: "Hauptinhalt", name: "body", widget: "markdown" }
+
+      - file: "content/termine.md"
+        label: "Termine"
+        name: "termine"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "layout.njk" }
+          - label: "Farbton"
+            name: "farbton"
+            widget: "select"
+            default: "allgemein"
+            options:
+              - { label: "Allgemein – Nachtpetrol", value: "allgemein" }
+              - { label: "Gesellschaft – Morgengold", value: "gesellschaft" }
+              - { label: "Trauernde – Erdrot", value: "trauernde" }
+              - { label: "Unterstützende – Hoffnungsgrün", value: "unterstuetzende" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Einleitungstext", name: "lead", widget: "text", required: false }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+          - { label: "Hauptinhalt", name: "body", widget: "markdown" }
+
+      - file: "content/mitglied-werden.md"
+        label: "Mitglied werden"
+        name: "mitglied_werden"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "layout.njk" }
+          - label: "Farbton"
+            name: "farbton"
+            widget: "select"
+            default: "unterstuetzende"
+            options:
+              - { label: "Allgemein – Nachtpetrol", value: "allgemein" }
+              - { label: "Gesellschaft – Morgengold", value: "gesellschaft" }
+              - { label: "Trauernde – Erdrot", value: "trauernde" }
+              - { label: "Unterstützende – Hoffnungsgrün", value: "unterstuetzende" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Einleitungstext", name: "lead", widget: "text", required: false }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+          - { label: "Hauptinhalt", name: "body", widget: "markdown" }
+          - { label: "Tally Formular ID", name: "tally_id", widget: "string", required: false, hint: "TODO: aktuell nicht verwendet – nur wenn Tally eingebunden wird." }
+
+      - file: "content/kontakt.md"
+        label: "Kontakt"
+        name: "kontakt"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "layout.njk" }
+          - label: "Farbton"
+            name: "farbton"
+            widget: "select"
+            default: "allgemein"
+            options:
+              - { label: "Allgemein – Nachtpetrol", value: "allgemein" }
+              - { label: "Gesellschaft – Morgengold", value: "gesellschaft" }
+              - { label: "Trauernde – Erdrot", value: "trauernde" }
+              - { label: "Unterstützende – Hoffnungsgrün", value: "unterstuetzende" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Einleitungstext", name: "lead", widget: "text", required: false }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+          - { label: "Hauptinhalt", name: "body", widget: "markdown" }
+
+      - file: "content/impressum.md"
+        label: "Impressum"
+        name: "impressum"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "layout.njk" }
+          - label: "Farbton"
+            name: "farbton"
+            widget: "select"
+            default: "allgemein"
+            options:
+              - { label: "Allgemein – Nachtpetrol", value: "allgemein" }
+              - { label: "Gesellschaft – Morgengold", value: "gesellschaft" }
+              - { label: "Trauernde – Erdrot", value: "trauernde" }
+              - { label: "Unterstützende – Hoffnungsgrün", value: "unterstuetzende" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Einleitungstext", name: "lead", widget: "text", required: false }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+          - { label: "Hauptinhalt", name: "body", widget: "markdown" }
+
+      - file: "content/datenschutz.md"
+        label: "Datenschutz"
+        name: "datenschutz"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "layout.njk" }
+          - label: "Farbton"
+            name: "farbton"
+            widget: "select"
+            default: "allgemein"
+            options:
+              - { label: "Allgemein – Nachtpetrol", value: "allgemein" }
+              - { label: "Gesellschaft – Morgengold", value: "gesellschaft" }
+              - { label: "Trauernde – Erdrot", value: "trauernde" }
+              - { label: "Unterstützende – Hoffnungsgrün", value: "unterstuetzende" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Einleitungstext", name: "lead", widget: "text", required: false }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+          - { label: "Hauptinhalt", name: "body", widget: "markdown" }
+
+      - file: "content/neuigkeiten.md"
+        label: "Neuigkeiten (Übersicht)"
+        name: "neuigkeiten"
+        fields:
+          - { label: "Layout", name: "layout", widget: "hidden", default: "news-list.njk" }
+          - label: "Farbton"
+            name: "farbton"
+            widget: "select"
+            default: "allgemein"
+            options:
+              - { label: "Allgemein – Nachtpetrol", value: "allgemein" }
+              - { label: "Gesellschaft – Morgengold", value: "gesellschaft" }
+              - { label: "Trauernde – Erdrot", value: "trauernde" }
+              - { label: "Unterstützende – Hoffnungsgrün", value: "unterstuetzende" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Einleitungstext", name: "lead", widget: "text", required: false }
+          - { label: "SEO Meta Titel", name: "meta_title", widget: "string", required: false }
+          - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+
+  - name: "news"
+    label: "Neuigkeiten / Blog"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "news.njk" }
+      - label: "Farbton"
+        name: "farbton"
+        widget: "select"
+        default: "allgemein"
+        options:
+          - { label: "Allgemein – Nachtpetrol", value: "allgemein" }
+          - { label: "Gesellschaft – Morgengold", value: "gesellschaft" }
+          - { label: "Trauernde – Erdrot", value: "trauernde" }
+          - { label: "Unterstützende – Hoffnungsgrün", value: "unterstuetzende" }
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime" }
+      - { label: "SEO Meta Beschreibung", name: "meta_description", widget: "text", required: false }
+      - { label: "Beitragstext", name: "body", widget: "markdown" }
